@@ -1,7 +1,7 @@
 import React from 'react';
 import { FaRegBookmark } from 'react-icons/fa';
 
-const Blog = ({ blog }) => {
+const Blog = ({ blog, handleBookMark, handleMarkAsRead }) => {
     const { cover, author_img, author, posted_date, reading_time, title, hashtags } = blog;
     return (
         <div className='border-b py-6 sm:py-8 lg:py-9'>
@@ -24,7 +24,9 @@ const Blog = ({ blog }) => {
                 {/* Right Part */}
                 <div className='flex items-center gap-2 sm:gap-4'>
                     <p className='text-base sm:text-lg md:text-xl font-medium'>{reading_time} min read</p>
-                    <FaRegBookmark size={20} className="sm:w-6 sm:h-6" />
+                    <button onClick={()=>handleBookMark(blog)}>
+                        <FaRegBookmark size={20} className="sm:w-6 sm:h-6 cursor-pointer" />
+                    </button>
                 </div>
             </div>
 
@@ -42,7 +44,7 @@ const Blog = ({ blog }) => {
 
             {/* Button */}
             <div>
-                <button className='underline text-base sm:text-lg md:text-xl font-semibold text-[#6047EC]'>Mark as read</button>
+                <button onClick={() => handleMarkAsRead(blog.reading_time, blog.id)} className='underline text-base sm:text-lg md:text-xl font-semibold text-[#6047EC] cursor-pointer'>Mark as read</button>
             </div>
         </div>
     );

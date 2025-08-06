@@ -18,7 +18,7 @@ const Navbar = () => {
                     />
                 </div>
             </div>
-            <div className='w-[95%] mx-auto'>
+            <div className='px-8'>
                 <hr />
             </div>
         </div>
